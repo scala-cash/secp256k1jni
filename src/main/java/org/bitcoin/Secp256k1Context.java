@@ -1,5 +1,6 @@
 /*
- * Copyright 2014-2016 the libsecp256k1 contributors
+ * Copyright 2014-2018 the libsecp256k1 contributors
+ * Copyright 2018-2020 the scash contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +17,8 @@
 
 package org.bitcoin;
 
+import org.scijava.nativelib.NativeLoader;
+
 /**
  * This class holds the context reference used in native methods 
  * to handle ECDSA operations.
@@ -28,10 +31,10 @@ public class Secp256k1Context {
       boolean isEnabled = true;
       long contextRef = -1;
       try {
-          System.loadLibrary("secp256k1");
+          NativeLoader.loadLibrary("secp256k1");
           contextRef = secp256k1_init_context();
-      } catch (UnsatisfiedLinkError e) {
-          System.out.println("UnsatisfiedLinkError: " + e.toString());
+      } catch (java.io.IOException | UnsatisfiedLinkError e) {
+          System.out.println("IO Error: " + e.toString());
           isEnabled = false;
       }
       enabled = isEnabled;
