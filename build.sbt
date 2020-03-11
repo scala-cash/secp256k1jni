@@ -5,7 +5,6 @@ version := "1.0.0"
 scalaVersion := "2.13.1"
 
 organization := "org.scash"
-skipP
 scmInfo := Some(ScmInfo(url("https://github.com/scala-cash/secp256k1jni"), "git@github.com:scala-cash/secp256k1jni.git"))
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
@@ -18,7 +17,8 @@ testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
 libraryDependencies ++= List(
   "dev.zio" %% "zio-test" % "1.0.0-RC18-1" % "test",
   "dev.zio" %% "zio-test-sbt" % "1.0.0-RC18-1" % "test",
-  "org.scijava" % "native-lib-loader" % "2.3.4" withSources () withJavadoc ()
+  "org.scijava" % "native-lib-loader" % "2.3.4"
 )
 
 Compile / unmanagedResourceDirectories += baseDirectory.value / "natives"
+unmanagedBase := baseDirectory.value
