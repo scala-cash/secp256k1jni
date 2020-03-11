@@ -1,6 +1,6 @@
 name := "secp256k1jni"
 
-version := "1.0.0"
+version := "1.1.0"
 
 scalaVersion := "2.13.1"
 
@@ -21,4 +21,3 @@ libraryDependencies ++= List(
 )
 
 Compile / unmanagedResourceDirectories += baseDirectory.value / "natives"
-unmanagedBase := baseDirectory.value
