@@ -6,12 +6,22 @@ This project gives people a convenient way to use BCH's [libsecp256k1](https://g
 
 To add `secp256k1jni` to your project you add it like this 
 
-Add this to your build.sbt file
+#### Maven 
+```xml
+<dependency>
+  <groupId>org.scash</groupId>
+  <artifactId>secp256k1jni_2.13</artifactId>
+  <version>1.1.1</version>
+  <type>pom</type>
+</dependency>
+```
+Verify you are choosing the latest version displayed on the badge above
+
+#### sbt
 
 ```
 resolvers ++= Seq(
-  Resolver.bintrayRepo("scala-cash", "io"),
-  Resolver.sonatypeRepo("public")
+  Resolver.bintrayRepo("scala-cash", "io")
 )
 
 libraryDependencies += "org.scash" %% "secp256k1jni" % <latestVersion>
