@@ -31,10 +31,10 @@ public class Secp256k1Context {
       boolean isEnabled = true;
       long contextRef = -1;
       try {
-          NativeLoader.loadLibrary("secp256k1");
+          NativeLoader.loadLibrary("secp256k1_jni");
           contextRef = secp256k1_init_context();
       } catch (java.io.IOException | UnsatisfiedLinkError e) {
-          System.out.println("IO Error: " + e.toString());
+          System.out.println("Error: " + e.toString());
           isEnabled = false;
       }
       enabled = isEnabled;
