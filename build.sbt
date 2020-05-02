@@ -1,6 +1,6 @@
 name := "secp256k1jni"
 
-version := "1.1.2"
+version := "1.1.3"
 
 lazy val scala212 = "2.12.10"
 lazy val scala213 = "2.13.1"
